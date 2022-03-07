@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors</title>
+</head>
+<body>  
+ <script> 
+ 
+ // This function will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’ when the computer plays
+ function computerPlay() {
+    const options = ["rock", "paper", "scissors"];
+    return options[Math.floor(Math.random() * options.length)];
+}
+
+   
+//This function plays a single round of Rock Paper Scissors and returns a string that declares the winner of the round
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        return "It's a tie!";
+    }else if (playerSelection == "rock" && computerSelection == "scissors") {
+        return "You win!, Rock crushes Scissors";
+    }else if (playerSelection == "rock" && computerSelection == "paper") {
+        return "You lose! Paper covers Rock";
+    }else if (playerSelection == "paper" && computerSelection == "rock") {
+        return "You win, Paper covers Rock";
+    }else if (playerSelection == "paper" && computerSelection == "scissors") {
+        return "You lose!, Scissors cut Paper";
+    }else if (playerSelection == "scissors" && computerSelection == "rock") {
+        return "You lose!, Rock smashes Scisssors";
+    }else if (playerSelection == "scissors" && computerSelection == "paper") {
+        return "You win!, Scissors cut paper";
+    }else {
+        return "Please enter a valid option";
+    }
+}
+
+//This function plays a 5-round game that keeps score and reports winner or loser at the end of each round
+
+function game() {
+    for(let i = 0; i < 5;i++) {
+        let userPlay = prompt("Which would you choose? Rock, Paper or Scissors?");
+        const playerSelection = userPlay.toLowerCase();
+        const computerSelection = computerPlay();
+        console.log(playRound(playerSelection,computerSelection));
+    }
+}
+console.log(game());
+
+
+</script>
+
+
+</body>
+</html>
